@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/app_colors.dart';
+import '../utils/app_icons.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -25,10 +27,13 @@ class CustomBottomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildNavItem(0, Icons.home, 'Home', currentIndex == 0),
-              _buildNavItem(1, Icons.receipt, 'Bookings', currentIndex == 1),
-              _buildNavItem(2, Icons.message, 'Messages', currentIndex == 2),
-              _buildNavItem(3, Icons.person, 'Account', currentIndex == 3),
+              _buildNavItem(0, AppIcons.homeIcon, 'Home', currentIndex == 0),
+              _buildNavItem(
+                  1, AppIcons.bookingsIcon, 'Bookings', currentIndex == 1),
+              _buildNavItem(
+                  2, AppIcons.messageIcon, 'Messages', currentIndex == 2),
+              _buildNavItem(
+                  3, AppIcons.profileIcon, 'Account', currentIndex == 3),
             ],
           ),
         ),
@@ -36,15 +41,34 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem(int index, IconData icon, String label, bool isActive) {
+  Widget _buildNavItem(
+      int index, String iconPath, String label, bool isActive) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          icon,
-          color: isActive ? AppColors.primaryColor : Colors.grey,
-          size: 24,
+        if (isActive)
+          Container(
+            height: 3,
+            width: 35,
+            decoration: const BoxDecoration(
+              color: AppColors.primaryColor,
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(2)),
+            ),
+            margin: const EdgeInsets.only(bottom: 8),
+          ),
+        if (!isActive)
+          const SizedBox(
+              height: 11), // Compensate for the indicator height and margin
+        SvgPicture.asset(
+          iconPath,
+          colorFilter: ColorFilter.mode(
+            isActive ? AppColors.primaryColor : Colors.grey,
+            BlendMode.srcIn,
+          ),
+          width: 24,
+          height: 24,
         ),
+        const SizedBox(height: 4),
         Text(
           label,
           style: TextStyle(
