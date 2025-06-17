@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_style.dart';
+import '../utils/app_icons.dart';
 
 class ProviderCard extends StatelessWidget {
   final String image;
@@ -12,7 +14,6 @@ class ProviderCard extends StatelessWidget {
   final String location;
   final String profession;
   final int jobsCompleted;
-  final String? hug;
   final bool isHighlighted;
 
   const ProviderCard({
@@ -26,7 +27,6 @@ class ProviderCard extends StatelessWidget {
     required this.location,
     required this.profession,
     required this.jobsCompleted,
-    this.hug,
     this.isHighlighted = false,
   });
 
@@ -37,6 +37,7 @@ class ProviderCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.borderGrey),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),
@@ -45,33 +46,33 @@ class ProviderCard extends StatelessWidget {
             offset: const Offset(0, 2),
           ),
         ],
-        border: isHighlighted
-            ? Border.all(
-                color: AppColors.primaryColor.withOpacity(0.3), width: 1)
-            : null,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Provider image placeholder
+          // Provider image
           ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(12),
               topRight: Radius.circular(12),
             ),
-            child: Container(
+            child: Image.asset(
+              image,
               width: double.infinity,
               height: 140,
-              color: image == 'assets/images/worker1.png'
-                  ? Colors.redAccent.shade100
-                  : (image == 'assets/images/worker2.png'
-                      ? Colors.orange.shade100
-                      : Colors.blue.shade100),
-              child: Icon(
-                Icons.person,
-                size: 60,
-                color: Colors.white,
-              ),
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  width: double.infinity,
+                  height: 140,
+                  color: Colors.grey.shade100,
+                  child: Icon(
+                    Icons.person,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                );
+              },
             ),
           ),
           Padding(
@@ -85,7 +86,8 @@ class ProviderCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         name,
-                        style: AppTextStyle.latoBold(size: 16),
+                        style: AppTextStyle.lisuBosaRegular(
+                            size: 12, weight: FontWeight.w600),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -93,15 +95,10 @@ class ProviderCard extends StatelessWidget {
                     if (isVerified)
                       Container(
                         margin: const EdgeInsets.only(left: 4),
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.check,
-                          color: Colors.white,
-                          size: 12,
+                        child: SvgPicture.asset(
+                          AppIcons.checkIcon,
+                          width: 14,
+                          height: 14,
                         ),
                       ),
                     if (isMedal)
@@ -115,7 +112,8 @@ class ProviderCard extends StatelessWidget {
                 // Location
                 Text(
                   location,
-                  style: AppTextStyle.caption.copyWith(color: AppColors.grey),
+                  style:
+                      AppTextStyle.caption.copyWith(color: AppColors.textGrey),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -125,57 +123,103 @@ class ProviderCard extends StatelessWidget {
                 // Rating
                 Row(
                   children: [
-                    const Icon(Icons.star, color: Colors.amber, size: 16),
+                    const Icon(Icons.star, color: Colors.amber, size: 14),
                     const SizedBox(width: 4),
-                    Text('$rating', style: AppTextStyle.bodyText),
+                    Text(
+                      '$rating',
+                      style: AppTextStyle.caption.copyWith(
+                        color: AppColors.textGrey,
+                      ),
+                    ),
                     Text(
                       ' ($reviews)',
-                      style:
-                          AppTextStyle.caption.copyWith(color: AppColors.grey),
+                      style: AppTextStyle.caption.copyWith(
+                        color: AppColors.textGrey,
+                      ),
                     ),
                   ],
                 ),
 
-                if (hug != null) ...[
-                  const SizedBox(height: 8),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      hug!,
-                      style:
-                          AppTextStyle.caption.copyWith(color: AppColors.white),
-                    ),
-                  ),
-                ],
+                // Removed the hug field as requested
 
                 const SizedBox(height: 8),
 
                 // Profession and jobs
                 Row(
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.lightGrey),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        profession,
-                        style: AppTextStyle.caption,
-                      ),
-                    ),
+                    // Different style for profession based on whether it's the first card (highlighted) or not
+                    isHighlighted
+                        ? Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.lightGrey),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              profession,
+                              style: AppTextStyle.caption.copyWith(
+                                fontSize: 10,
+                                color: AppColors.textGrey,
+                              ),
+                            ),
+                          )
+                        : Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: AppColors.backgroundColor,
+                              border: Border.all(
+                                color:
+                                    AppColors.backgroundColor.withOpacity(0.6),
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              profession,
+                              style: AppTextStyle.caption.copyWith(
+                                fontSize: 10,
+                                color: AppColors.textGrey,
+                              ),
+                            ),
+                          ),
                     const SizedBox(width: 8),
-                    Text(
-                      '$jobsCompleted Jobs',
-                      style:
-                          AppTextStyle.caption.copyWith(color: AppColors.grey),
-                    ),
+                    // Different style for jobs based on whether it's the first card (highlighted) or not
+                    isHighlighted
+                        ? Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.lightGrey),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              '$jobsCompleted Jobs',
+                              style: AppTextStyle.caption.copyWith(
+                                fontSize: 10,
+                                color: AppColors.textGrey,
+                              ),
+                            ),
+                          )
+                        : Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: AppColors.backgroundColor,
+                              border: Border.all(
+                                color:
+                                    AppColors.backgroundColor.withOpacity(0.6),
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              '$jobsCompleted Jobs',
+                              style: AppTextStyle.caption.copyWith(
+                                fontSize: 10,
+                                color: AppColors.textGrey,
+                              ),
+                            ),
+                          ),
                   ],
                 ),
               ],
