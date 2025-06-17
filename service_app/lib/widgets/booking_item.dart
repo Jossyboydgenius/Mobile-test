@@ -35,6 +35,7 @@ class BookingItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.borderGrey),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),
@@ -56,7 +57,10 @@ class BookingItem extends StatelessWidget {
                   children: [
                     Text(
                       service,
-                      style: AppTextStyle.latoBold(size: 16),
+                      style: AppTextStyle.lisuBosaRegular(
+                        size: 16,
+                        weight: FontWeight.w500,
+                      ),
                     ),
                     if (date != null)
                       Text(
@@ -72,12 +76,25 @@ class BookingItem extends StatelessWidget {
                   children: [
                     Text(
                       price,
-                      style: AppTextStyle.latoBold(size: 16),
+                      style: AppTextStyle.lisuBosaRegular(
+                        size: 14,
+                        weight: FontWeight.w500,
+                      ),
                     ),
-                    Text(
-                      status.capitalize(),
-                      style: AppTextStyle.caption.copyWith(
-                        color: _getStatusColor(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: _getStatusColor().withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        status.capitalize(),
+                        style: AppTextStyle.caption.copyWith(
+                          color: _getStatusColor(),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                        ),
                       ),
                     ),
                   ],
@@ -85,19 +102,7 @@ class BookingItem extends StatelessWidget {
               ],
             ),
           ),
-          if (status.toLowerCase() == 'pending')
-            Container(
-              height: 4,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.primaryColor,
-                    AppColors.primaryColor.withOpacity(0.7),
-                    AppColors.primaryColor.withOpacity(0.3),
-                  ],
-                ),
-              ),
-            ),
+          // Removed gradient for pending bookings as requested
         ],
       ),
     );
