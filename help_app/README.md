@@ -80,6 +80,54 @@ A comprehensive Flutter development workspace containing the Help App - a mobile
 
 This repository contains a Flutter mobile application test project that demonstrates modern mobile app development practices, UI/UX implementation skills, and cross-platform development capabilities.
 
+## 📸 App Screenshots
+
+Get a glimpse of the Help App's beautiful and intuitive interface:
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="help_app/assets/images/screenshot1.png" width="250" alt="Home Screen"/>
+        <br/>
+        <b>🏠 Home Screen</b>
+      </td>
+      <td align="center">
+        <img src="help_app/assets/images/screenshot2.png" width="250" alt="Service Categories"/>
+        <br/>
+        <b>🛠️ Service Categories</b>
+      </td>
+      <td align="center">
+        <img src="help_app/assets/images/screenshot3.png" width="250" alt="Provider Listings"/>
+        <br/>
+        <b>👥 Provider Listings</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="help_app/assets/images/screenshot4.png" width="250" alt="Booking Management"/>
+        <br/>
+        <b>📅 Booking Management</b>
+      </td>
+      <td align="center">
+        <img src="help_app/assets/images/screenshot5.png" width="250" alt="Navigation"/>
+        <br/>
+        <b>🧭 Navigation</b>
+      </td>
+      <td align="center">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+          <h3>✨ Modern UI Design</h3>
+          <p>Clean, intuitive, and responsive interface</p>
+          <p>🎨 Custom color scheme</p>
+          <p>📱 Cross-platform compatibility</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
