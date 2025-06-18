@@ -95,24 +95,24 @@ Get a glimpse of the Help App's beautiful and intuitive interface:
       <td align="center">
         <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot2.png" width="250" alt="Service Categories"/>
         <br/>
-        <b>🛠️ Service Categories</b>
+        <b>🧭 Navigation</b>
       </td>
       <td align="center">
         <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot3.png" width="250" alt="Provider Listings"/>
         <br/>
-        <b>👥 Provider Listings</b>
+        <b>🛠️ Service Categories</b>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot4.png" width="250" alt="Booking Management"/>
         <br/>
-        <b>📅 Booking Management</b>
+        <b>👥 Provider Listings</b>
       </td>
       <td align="center">
         <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot5.png" width="250" alt="Navigation"/>
         <br/>
-        <b>🧭 Navigation</b>
+        <b>📅 Booking Management</b>
       </td>
       <td align="center">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
@@ -278,12 +278,12 @@ flutter build linux
 ## 🔧 Configuration
 
 ### Android Configuration
-- **Package Name:** `com.example.help_app`
+- **Package Name:** `com.helpapp.app`
 - **Min SDK:** 21 (Android 5.0)
 - **Target SDK:** Latest
 
 ### iOS Configuration
-- **Bundle ID:** `com.example.helpApp`
+- **Bundle ID:** `com.helpapp.app`
 - **Deployment Target:** iOS 11.0
 
 ## 📚 Resources
