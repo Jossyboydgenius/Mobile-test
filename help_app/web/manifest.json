@@ -1,11 +1,11 @@
 {
-    "name": "service_app",
-    "short_name": "service_app",
+    "name": "help_app",
+    "short_name": "help_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Help App - Smart Assistant for your daily needs.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
