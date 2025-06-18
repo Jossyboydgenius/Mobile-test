@@ -88,29 +88,29 @@ Get a glimpse of the Help App's beautiful and intuitive interface:
   <table>
     <tr>
       <td align="center">
-        <img src="help_app/assets/images/screenshot1.png" width="250" alt="Home Screen"/>
+        <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot1.png" width="250" alt="Home Screen"/>
         <br/>
         <b>🏠 Home Screen</b>
       </td>
       <td align="center">
-        <img src="help_app/assets/images/screenshot2.png" width="250" alt="Service Categories"/>
+        <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot2.png" width="250" alt="Service Categories"/>
         <br/>
         <b>🛠️ Service Categories</b>
       </td>
       <td align="center">
-        <img src="help_app/assets/images/screenshot3.png" width="250" alt="Provider Listings"/>
+        <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot3.png" width="250" alt="Provider Listings"/>
         <br/>
         <b>👥 Provider Listings</b>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="help_app/assets/images/screenshot4.png" width="250" alt="Booking Management"/>
+        <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot4.png" width="250" alt="Booking Management"/>
         <br/>
         <b>📅 Booking Management</b>
       </td>
       <td align="center">
-        <img src="help_app/assets/images/screenshot5.png" width="250" alt="Navigation"/>
+        <img src="https://raw.githubusercontent.com/Jossyboydgenius/Mobile-test/refs/heads/main/help_app/assets/images/screenshot5.png" width="250" alt="Navigation"/>
         <br/>
         <b>🧭 Navigation</b>
       </td>
